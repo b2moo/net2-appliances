@@ -1,1 +1,1 @@
-docker login -u students23 -p PYXYgjQAkesJa12YtKs7
+docker login registry.cri.epita.fr -u students23 -p PYXYgjQAkesJa12YtKs7
