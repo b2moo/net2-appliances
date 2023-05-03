@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 docker login -u students23 -p PYXYgjQAkesJa12YtKs7
 
