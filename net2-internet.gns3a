@@ -1,0 +1,20 @@
+{
+    "appliance_id": "ec1a0814a1dbdcfdc93274143610251e526e803bcfb25d70d7446421dadbc2a6",
+    "name": "net2-internet",
+    "category": "guest",
+    "description": "NET2 internet emulation docker image",
+    "vendor_name": "NET2 staff",
+    "vendor_url": "https://epita.fr/",
+    "documentation_url": "",
+    "product_name": "net2 internet emulation",
+    "registry_version": 4,
+    "status": "stable",
+    "maintainer": "NET2 staff",
+    "maintainer_email": "daniel.stan@epita.fr",
+    "symbol": "internet.png",
+    "docker": {
+        "adapters": 2,
+        "image": "registry.cri.epita.fr/daniel.stan/net2-appliances/net2-internet",
+        "console_type": "telnet"
+    }
+}
