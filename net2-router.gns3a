@@ -13,7 +13,7 @@
     "maintainer_email": "daniel.stan@epita.fr",
     "symbol": ":/symbols/classic/router.svg",
     "docker": {
-        "adapters": 2,
+        "adapters": 4,
         "image": "registry.cri.epita.fr/daniel.stan/net2-appliances/net2-router",
         "console_type": "telnet"
     }
