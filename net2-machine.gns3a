@@ -1,0 +1,20 @@
+{
+    "appliance_id": "c58c3e8c-1147-4e66-9eef-7df627575cdf",
+    "name": "net2-machine",
+    "category": "guest",
+    "description": "NET2 machine docker image",
+    "vendor_name": "NET2 staff",
+    "vendor_url": "https://epita.fr/",
+    "documentation_url": "",
+    "product_name": "net2 machine",
+    "registry_version": 4,
+    "status": "stable",
+    "maintainer": "NET2 staff",
+    "maintainer_email": "daniel.stan@epita.fr",
+    "symbol": "linux_guest.svg",
+    "docker": {
+        "adapters": 1,
+        "image": "registry.cri.epita.fr/daniel.stan/net2-appliances/net2-router",
+        "console_type": "telnet"
+    }
+}
