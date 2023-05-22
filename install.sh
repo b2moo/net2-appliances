@@ -8,7 +8,6 @@ docker login registry.cri.epita.fr -u students23 -p PYXYgjQAkesJa12YtKs7
 # download stuff by hand, because GNS3 seems to fail this :(
 if [ "$2" == "--pull" ]; then
   docker pull $REGISTRY/net2-internet
-  docker pull $REGISTRY/net2-machine
   docker pull $REGISTRY/net2-secretuser
   docker pull $REGISTRY/net2-pebble
   docker pull $REGISTRY/net2-router

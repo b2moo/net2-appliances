@@ -1,3 +1,2 @@
-image internet.png not setup by default :(
+find a way to import everything automatically
 
-2023-05-03 15:29:08 ERROR template_manager:226 Error while creating node from template: Could not pull the 'registry.cri.epita.fr/daniel.stan/net2-appliances/net2-router:latest' image from Docker Hub, please check your Internet connection (original error: Docker has returned an error: 500 Head "https://registry.cri.epita.fr/v2/daniel.stan/net2-appliances/net2-router/manifests/latest": denied: access forbidden)
