@@ -6,3 +6,6 @@
 4. Import every appliance (`.gns3a` file)
 	
 	!["New template" then "import an appliance file"](./howto.png)
+
+
+If necessary run `./install.sh --pull` to enforce downloading everything.
