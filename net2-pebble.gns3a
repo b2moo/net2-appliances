@@ -1,0 +1,20 @@
+{
+    "appliance_id": "32ba7f2a-de13-4f1e-bd5e-a22d1f0556e0",
+    "name": "net2-pebble",
+    "category": "guest",
+    "description": "NET2 pebble (ACME server) docker image",
+    "vendor_name": "NET2 staff",
+    "vendor_url": "https://epita.fr/",
+    "documentation_url": "",
+    "product_name": "net2 machine",
+    "registry_version": 4,
+    "status": "stable",
+    "maintainer": "NET2 staff",
+    "maintainer_email": "daniel.stan@epita.fr",
+    "symbol": "letsencrypt-logo.png",
+    "docker": {
+        "adapters": 1,
+        "image": "registry.cri.epita.fr/daniel.stan/net2-appliances/net2-pebble",
+        "console_type": "telnet"
+    }
+}
