@@ -16,3 +16,4 @@ docker pull $REGISTRY/net2-router
 cp internet.png $CONFIG/symbols/
 cp letsencrypt-logo.png $CONFIG/symbols/
 cp linux_guest.svg $CONFIG/symbols/
+cp secret_user.svg $CONFIG/symbols/
