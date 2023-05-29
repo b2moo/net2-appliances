@@ -10,6 +10,7 @@ docker pull $REGISTRY/net2-internet
 docker pull $REGISTRY/net2-secretuser
 docker pull $REGISTRY/net2-pebble
 docker pull $REGISTRY/net2-router
+docker pull $REGISTRY/net2-webserver
 
 
 # custom symbols
@@ -17,3 +18,4 @@ cp internet.png $CONFIG/symbols/
 cp letsencrypt-logo.png $CONFIG/symbols/
 cp linux_guest.svg $CONFIG/symbols/
 cp secret_user.svg $CONFIG/symbols/
+cp webserver.svg $CONFIG/symbols/

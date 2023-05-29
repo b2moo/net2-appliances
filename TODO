@@ -1,2 +1,19 @@
 find a way to import everything automatically
 
+wget http://localhost:3080/v2/templates -O -
+
+To list:
+wget http://localhost:3080/v2/templates -O -
+
+To delete
+wget --method=DELETE http://localhost:3080/v2/templates/ed62a987-817b-4215-b77b-58a08d00b617 -O -
+
+To create:
+wget --post-file=mytemplate http://localhost:3080/v2/templates/ed62a987-817b-4215-b77b-58a08d00b617 -O -
+
+
+LICENCES:
+globe icon (https://www.svgrepo.com/svg/513304/globe-2 )
+COLLECTION: Responsive Flat Icons
+LICENSE: CC Attribution License
+AUTHOR: pixelbazaar

@@ -1,0 +1,20 @@
+{
+    "appliance_id": "c35fba3b-983f-4cd1-bb4a-51bc654c9e4e",
+    "name": "net2-webserver",
+    "category": "guest",
+    "description": "NET2 webserver docker image",
+    "vendor_name": "NET2 staff",
+    "vendor_url": "https://epita.fr/",
+    "documentation_url": "",
+    "product_name": "net2 webserver",
+    "registry_version": 1,
+    "status": "stable",
+    "maintainer": "NET2 staff",
+    "maintainer_email": "daniel.stan@epita.fr",
+    "symbol": "webserver.svg",
+    "docker": {
+        "adapters": 1,
+        "image": "registry.cri.epita.fr/daniel.stan/net2-appliances/net2-webserver",
+        "console_type": "telnet"
+    }
+}
