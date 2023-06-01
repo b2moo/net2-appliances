@@ -1,0 +1,23 @@
+    {
+        "adapters": 1,
+        "builtin": false,
+        "category": "guest",
+        "compute_id": "local",
+        "console_auto_start": false,
+        "console_http_path": "/",
+        "console_http_port": 80,
+        "console_resolution": "1024x768",
+        "console_type": "telnet",
+        "custom_adapters": [],
+        "default_name_format": "{name}-{0}",
+        "environment": "",
+        "extra_hosts": "",
+        "extra_volumes": [],
+        "image": "registry.cri.epita.fr/daniel.stan/net2-appliances/net2-secretuser",
+        "name": "net2-secretuser",
+        "start_command": "",
+        "symbol": "secret_user.svg",
+        "template_id": "d62652fe-bec2-457c-97cd-18a38dba7da2",
+        "template_type": "docker",
+        "usage": ""
+    }

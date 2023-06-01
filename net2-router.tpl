@@ -1,0 +1,23 @@
+    {
+        "adapters": 4,
+        "builtin": false,
+        "category": "guest",
+        "compute_id": "local",
+        "console_auto_start": false,
+        "console_http_path": "/",
+        "console_http_port": 80,
+        "console_resolution": "1024x768",
+        "console_type": "telnet",
+        "custom_adapters": [],
+        "default_name_format": "{name}-{0}",
+        "environment": "",
+        "extra_hosts": "",
+        "extra_volumes": [],
+        "image": "registry.cri.epita.fr/daniel.stan/net2-appliances/net2-router",
+        "name": "net2-router",
+        "start_command": "",
+        "symbol": ":/symbols/classic/router.svg",
+        "template_id": "0623ba12-fc8a-4d88-aec1-191920c963d9",
+        "template_type": "docker",
+        "usage": ""
+    }
