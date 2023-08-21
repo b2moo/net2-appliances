@@ -11,7 +11,7 @@ if grep -iq "^auth *= *True" $CONF; then
     HOST=$login:$pass@$HOST
 fi
 
-docker login registry.cri.epita.fr -u students23 -p PYXYgjQAkesJa12YtKs7
+docker login registry.cri.epita.fr -u rattrapage2023 -p s8KGxaPWBYfCR899beCy
 
 # download stuff by hand, because GNS3 seems to fail this :(
 echo "### PULL DOCKER IMAGES"
