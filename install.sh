@@ -4,6 +4,8 @@ DATA_DIR=~/GNS3
 REGISTRY=registry.cri.epita.fr/daniel.stan/net2-appliances
 CONF=~/.config/GNS3/2.2/gns3_server.conf
 HOST=localhost:3080
+LOGIN=dev24
+PASS=i56nBs7ygDpKh6MD9yyS
 
 if grep -iq "^auth *= *True" $CONF; then
     login=$(sed "s/^user *= *\(.*\)$/\1/; t; d" $CONF)
@@ -11,7 +13,7 @@ if grep -iq "^auth *= *True" $CONF; then
     HOST=$login:$pass@$HOST
 fi
 
-docker login registry.cri.epita.fr -u rattrapage2023 -p s8KGxaPWBYfCR899beCy
+docker login registry.cri.epita.fr -u $LOGIN -p $PASS
 
 # download stuff by hand, because GNS3 seems to fail this :(
 echo "### PULL DOCKER IMAGES"
