@@ -4,14 +4,25 @@ DATA_DIR=~/GNS3
 REGISTRY=registry.cri.epita.fr/daniel.stan/net2-appliances
 CONF=~/.config/GNS3/2.2/gns3_server.conf
 HOST=localhost:3080
-LOGIN=dev24
-PASS=i56nBs7ygDpKh6MD9yyS
+# Gitlab credidentials
+LOGIN=net2-2024
+PASS=ZMddwrbApgpMMozoBh1L
 
+# Look for a password protected GNS3
 if grep -iq "^auth *= *True" $CONF; then
     login=$(sed "s/^user *= *\(.*\)$/\1/; t; d" $CONF)
     pass=$(sed "s/^password *= *\(.*\)$/\1/; t; d" $CONF)
     HOST=$login:$pass@$HOST
 fi
+
+# Checking that we can connect to GNS3 server
+if wget http://$HOST/v2/computes -O /dev/null; then
+    echo "Connected to server (./)"
+else
+    echo "!!!! Cannot connect to GNS3, launch it first !!!!"
+    exit 1
+fi
+
 
 docker login registry.cri.epita.fr -u $LOGIN -p $PASS
 
