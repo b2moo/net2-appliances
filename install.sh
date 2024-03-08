@@ -8,6 +8,19 @@ HOST=localhost:3080
 LOGIN=net2-2024
 PASS=ZMddwrbApgpMMozoBh1L
 
+# Is it the latest version of this repository ?
+oldhash=$(git rev-parse HEAD)
+echo "Checking repository for new version ..."
+git pull
+newhash=$(git rev-parse HEAD)
+if [ "$oldhash" != "$newhash" ]; then
+    echo "A new version has been pulled, I'll rerun the script"
+    sleep 2
+    exec ./install.sh
+fi
+
+
+
 # Look for a password protected GNS3
 if grep -iq "^auth *= *True" $CONF; then
     login=$(sed "s/^user *= *\(.*\)$/\1/; t; d" $CONF)
