@@ -58,9 +58,19 @@ cp webserver.svg $DATA_DIR/symbols/
 
 
 echo "### IMPORTING APPLIANCES"
-wget http://$HOST/v2/templates --post-file=./net2-internet.tpl -O -
-wget http://$HOST/v2/templates --post-file=./net2-router.tpl -O -
-wget http://$HOST/v2/templates --post-file=./net2-machine.tpl -O -
-wget http://$HOST/v2/templates --post-file=./net2-secretuser.tpl -O -
-wget http://$HOST/v2/templates --post-file=./net2-pebble.tpl -O -
-wget http://$HOST/v2/templates --post-file=./net2-webserver.tpl -O -
+for tpl in net2-internet.tpl net2-router.tpl net2-machine.tpl net2-secretuser.tpl net2-pebble.tpl; do
+    echo -n "  deleting first $tpl ..."
+    id=$(jq -r '.["template_id"]' $tpl)
+    if wget --method=DELETE http://$HOST/v2/templates/$id -O /dev/null 2> /dev/null; then
+        echo "success";
+    else
+        echo "failed"
+    fi
+
+    echo -n "  importing $tpl ..."
+    if wget http://$HOST/v2/templates --post-file=./$tpl -O /dev/null 2> /dev/null; then
+        echo "success";
+    else
+        echo "failed"
+    fi
+done
