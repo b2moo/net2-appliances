@@ -1,3 +1,11 @@
+
+mktorrent --no-date -a http://torrent.pie.cri.epita.fr:8000/announce \
+  -w https://s3.cri.epita.fr/cri-nico-uploads/ \
+  ubuntu-22.04.3-live-server-amd64.iso
+
+aria2c --enable-dht=false --enable-dht6=false --seed-ratio=0
+~/Downloads/ubuntu-22.04.3-live-server-amd64.iso.torrent
+
 find a way to import everything automatically
 
 wget http://localhost:3080/v2/templates -O -
