@@ -1,7 +1,5 @@
 #!/bin/sh
 
-. ./config.sh
-
 # Is it the latest version of this repository ?
 oldhash=$(git rev-parse HEAD)
 echo "Checking repository for new version ..."
@@ -12,6 +10,15 @@ if [ "$oldhash" != "$newhash" ]; then
     sleep 2
     exec ./install.sh
 fi
+
+# Try to install jq with nix-shell
+if ! which jq && which nix-shell; then
+    echo "### Install jq with nix-shell"
+    sleep 1
+    exec nix-shell -p jq --run ./install.sh
+fi
+
+. ./config.sh
 
 # Checking that we can connect to GNS3 server
 if wget http://$HOST/v2/computes -O /dev/null 2> /dev/null; then
