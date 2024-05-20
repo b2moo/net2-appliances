@@ -56,7 +56,9 @@ done
 docker login $REGISTRY -u $LOGIN -p $PASS
 
 # Download stuff by hand
-echo "### PULL DOCKER IMAGES"
-for img in $IMAGES; do
-    docker pull $img
-done
+if [ "$1" == "--pull" ]; then
+    echo "### PULL DOCKER IMAGES"
+    for img in $IMAGES; do
+        docker pull $img
+    done
+fi
