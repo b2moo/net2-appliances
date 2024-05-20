@@ -12,10 +12,10 @@ if [ "$oldhash" != "$newhash" ]; then
 fi
 
 # Try to install jq with nix-shell
-if ! which jq && which nix-shell; then
+if (! which jq || ! which aria2c) && which nix-shell; then
     echo "### Install jq with nix-shell"
     sleep 1
-    exec nix-shell -p jq --run ./install.sh
+    exec nix-shell -p jq -p aria2 --run ./install.sh
 fi
 
 . ./config.sh
@@ -55,10 +55,17 @@ done
 # Login so that all image pull work (by GNS3, or "by hand")
 docker login $REGISTRY -u $LOGIN -p $PASS
 
+
+
 # Download stuff by hand
-if [ "$1" == "--pull" ]; then
+if [ "$1" = "--pull" ]; then
     echo "### PULL DOCKER IMAGES"
     for img in $IMAGES; do
         docker pull $img
     done
+fi
+
+if ! which aria2c; then
+    echo "aria2c missing, try running apt install aria2"
+    echo "otherwise, run with --pull"
 fi
