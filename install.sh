@@ -13,7 +13,7 @@ fi
 
 # Try to install jq with nix-shell
 if (! which jq || ! which aria2c) && which nix-shell; then
-    echo "### Install jq with nix-shell"
+    echo "### Install jq and aria2 with nix-shell"
     sleep 1
     exec nix-shell -p jq -p aria2 --run ./install.sh
 fi
@@ -66,8 +66,9 @@ if [ "$1" = "--pull" ]; then
 fi
 
 if ! which aria2c; then
-    echo "aria2c missing, try running \"sudo apt install aria2\""
-    echo "otherwise, run with --pull"
+    echo "/!\\ aria2c is missing:"
+    echo " * install it: \"sudo apt install aria2\""
+    echo " * or run ./install.sh --pull"
 fi
 
 # -V = seeding if file already here with correct hash
