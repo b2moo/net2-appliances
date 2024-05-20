@@ -66,6 +66,11 @@ if [ "$1" = "--pull" ]; then
 fi
 
 if ! which aria2c; then
-    echo "aria2c missing, try running apt install aria2"
+    echo "aria2c missing, try running \"sudo apt install aria2\""
     echo "otherwise, run with --pull"
 fi
+
+# -V = seeding if file already here with correct hash
+aria2c docker-v0.torrent --enable-dht=false --enable-dht6=false --seed-ratio=0 \
+	--on-bt-download-complete ./loaddl.sh -V
+
