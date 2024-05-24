@@ -8,14 +8,14 @@ newhash=$(git rev-parse HEAD)
 if [ "$oldhash" != "$newhash" ]; then
     echo "A new version has been pulled, I'll rerun the script"
     sleep 2
-    exec ./install.sh
+    exec ./install.sh "$@"
 fi
 
 # Try to install jq with nix-shell
 if (! which jq || ! which aria2c) && which nix-shell; then
     echo "### Install jq and aria2 with nix-shell"
     sleep 1
-    exec nix-shell -p jq -p aria2 --run ./install.sh
+    exec nix-shell -p jq -p aria2 --run ./install.sh\ "$@"
 fi
 
 . ./config.sh
