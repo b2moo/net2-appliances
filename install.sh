@@ -72,6 +72,6 @@ if ! which aria2c; then
 fi
 
 # -V = seeding if file already here with correct hash
-aria2c docker-v0.torrent --enable-dht=false --enable-dht6=false --seed-ratio=0 \
+aria2c $TORRENT --enable-dht=false --enable-dht6=false --seed-ratio=0 \
 	--on-bt-download-complete ./loaddl.sh -V
 
