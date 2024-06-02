@@ -15,7 +15,7 @@ LOGIN=net2-2024
 PASS=ZMddwrbApgpMMozoBh1L
 
 # Template files for GNS3
-TEMPLATES="net2-internet.tpl net2-router.tpl net2-machine.tpl net2-secretuser.tpl net2-pebble.tpl"
+TEMPLATES="net2-internet.tpl net2-router.tpl net2-machine.tpl net2-secretuser.tpl net2-ca.tpl"
 
 # Docker images of these templates
 IMAGES=$(for t in $TEMPLATES; do jq -r '.image + ""' $t; done | sort | uniq)
