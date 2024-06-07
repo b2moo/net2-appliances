@@ -15,7 +15,7 @@ LOGIN=net2-2024
 PASS=ZMddwrbApgpMMozoBh1L
 
 # Template files for GNS3
-TEMPLATES="net2-internet.tpl net2-router.tpl net2-machine.tpl net2-secretuser.tpl net2-ca.tpl"
+TEMPLATES="net2-internet.tpl net2-router.tpl net2-machine.tpl net2-secretuser.tpl net2-ca.tpl net2-webserver.tpl"
 
 # Docker images of these templates
 IMAGES=$(for t in $TEMPLATES; do jq -r '.image + ""' $t; done | sort | uniq)
@@ -34,4 +34,4 @@ if grep -iq "^auth *= *True" $CONF; then
     HOST=$login:$pass@$HOST
 fi
 
-TORRENT=docker-v1.4.torrent
+TORRENT=docker-v1.5.torrent
