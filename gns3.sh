@@ -8,20 +8,23 @@ newhash=$(git rev-parse HEAD)
 if [ "$oldhash" != "$newhash" ]; then
     echo "A new version has been pulled, I'll rerun the script"
     sleep 2
-    exec ./install.sh "$@"
+    exec "$0" "$@"
 fi
 
 # Try to install jq with nix-shell
 if (! which jq || ! which aria2c) && which nix-shell; then
     echo "### Install jq and aria2 with nix-shell"
     sleep 1
-    exec nix-shell -p jq -p aria2 --run ./install.sh\ "$@"
+    exec nix-shell -p jq -p aria2 --run "$0"\ "$@"
 fi
 
 . ./config.sh
 
 killall gns3server
+killall .gns3server-wrapped
 gns3server --daemon
+
+sleep 2
 
 # Checking that we can connect to GNS3 server
 if wget http://$HOST/v2/computes -O /dev/null 2> /dev/null; then
@@ -82,4 +85,5 @@ aria2c $TORRENT --enable-dht=false --enable-dht6=false \
 
 # Relaunch gns3server one last time
 killall gns3server
+killall .gns3server-wrapped
 gns3
