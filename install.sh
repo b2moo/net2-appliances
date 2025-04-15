@@ -11,11 +11,18 @@ if [ "$oldhash" != "$newhash" ]; then
     exec ./install.sh "$@"
 fi
 
-# Try to install jq with nix-shell
-if (! which jq || ! which aria2c) && which nix-shell; then
-    echo "### Install jq and aria2 with nix-shell"
-    sleep 1
-    exec nix-shell -p jq -p aria2 --run ./install.sh\ "$@"
+# Try to install jq
+if (! which jq || ! which aria2c); then
+    # with nix-shell ?
+    if which nix-shell; then
+        echo "### Install jq and aria2 with nix-shell"
+        sleep 1
+        exec nix-shell -p jq -p aria2 --run ./install.sh\ "$@"
+    elif which apt; then
+        echo "### Install jq and aria2 with apt"
+        sleep 1
+        sudo apt install jq aria2
+    fi
 fi
 
 . ./config.sh
