@@ -11,8 +11,8 @@ fi
 # useless ?
 REGISTRY=registry.cri.epita.fr/daniel.stan/net2-appliances
 # Gitlab/Registry credidentials
-LOGIN=net2-2024
-PASS=ZMddwrbApgpMMozoBh1L
+LOGIN=net2-2025
+PASS=FrVHiU2qspikoqzRtsJ_
 
 # Template files for GNS3
 TEMPLATES="net2-internet.tpl net2-router.tpl net2-machine.tpl net2-secretuser.tpl net2-ca.tpl net2-webserver.tpl"

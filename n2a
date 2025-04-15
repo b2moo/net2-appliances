@@ -1,0 +1,4 @@
+placeholder file
+If one types again ```git clone https://[...]/ n2a; cd n2a; ./install.sh```,
+then this file will prevent the first two commands from running but install.sh
+will run.
