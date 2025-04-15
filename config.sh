@@ -34,4 +34,4 @@ if grep -iq "^auth *= *True" $CONF; then
     HOST=$login:$pass@$HOST
 fi
 
-TORRENT=docker-v1.5.torrent
+TORRENT=docker-v1.7.torrent

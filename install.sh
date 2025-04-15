@@ -21,6 +21,7 @@ if (! which jq || ! which aria2c); then
     elif which apt; then
         echo "### Install jq and aria2 with apt"
         sleep 1
+        sudo apt update
         sudo apt install jq aria2
     fi
 fi
