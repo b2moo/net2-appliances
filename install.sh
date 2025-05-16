@@ -63,25 +63,20 @@ done
 # Login so that all image pull work (by GNS3, or "by hand")
 docker login $REGISTRY -u $LOGIN -p $PASS
 
-
-
 # Download stuff by hand
-if [ "$1" = "--pull" ]; then
+if ! which aria2c || [ "$1" = "--pull" ]; then
+#    echo "/!\\ aria2c is missing:"
+#    echo " * install it: \"sudo apt install aria2\""
+#    echo " * or run ./install.sh --pull"
     echo "### PULL DOCKER IMAGES"
     for img in $IMAGES; do
         docker pull $img
     done
-fi
-
-if ! which aria2c; then
-    echo "/!\\ aria2c is missing:"
-    echo " * install it: \"sudo apt install aria2\""
-    echo " * or run ./install.sh --pull"
-fi
-
+else
 # -V = seeding if file already here with correct hash
 aria2c $TORRENT --enable-dht=false --enable-dht6=false \
     --seed-ratio=0 \
     --seed-time=1 \
 	--on-bt-download-complete ./loaddl.sh -V
+fi
 
