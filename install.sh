@@ -1,5 +1,6 @@
 #!/bin/sh
 
+
 # Is it the latest version of this repository ?
 oldhash=$(git rev-parse HEAD)
 echo "Checking repository for new version ..."
@@ -59,6 +60,9 @@ for tpl in $TEMPLATES; do
         echo "failed"
     fi
 done
+
+# Remove DOCKER_HOST
+export DOCKER_HOST=
 
 # Login so that all image pull work (by GNS3, or "by hand")
 docker login $REGISTRY -u $LOGIN -p $PASS
