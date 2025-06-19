@@ -4,7 +4,11 @@
 # Is it the latest version of this repository ?
 oldhash=$(git rev-parse HEAD)
 echo "Checking repository for new version ..."
-git pull
+git pull || {
+    echo "Cannot connect to repository, aborting !"
+    echo "Advice: delete this folder and follow the install procedure from scratch."
+    exit 1
+}
 newhash=$(git rev-parse HEAD)
 if [ "$oldhash" != "$newhash" ]; then
     echo "A new version has been pulled, I'll rerun the script"
