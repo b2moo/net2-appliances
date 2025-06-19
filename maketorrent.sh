@@ -26,8 +26,9 @@ for path in $IMAGES; do
   docker save $path:latest | gzip > $TARGET/$name.tar.gz
 done
 
-rsync -rv $TARGET dstan@zamok.crans.org:www/net2/
+#rsync -rv $TARGET dstan@zamok.crans.org:www/net2/
+rsync -rv $TARGET dstan@savarin-ds.tudo.re:/home/dstan/scripts-perso/www.tudo.re/net2/
 
 mktorrent --no-date -a http://torrent.pie.cri.epita.fr:8000/announce \
-  -w https://perso.crans.org/dstan/net2/ \
+  -w https://www.tudo.re/net2/ \
   $TARGET
